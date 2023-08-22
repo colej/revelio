@@ -40,14 +40,14 @@ ctypedef _HistType _HistType_t
 
 
 # python function to call the AoV routine
-def aov_periodogram(times, obs, sigma=None, min=None, max=None, frequency=True,
-               oversample_factor=1., nbins=8):
+def aov_periodogram(times, obs, sigma=None, min=None, max=None, use_frequency=True,
+                    oversample_factor=1., nbins=8):
 
 
   if sigma is None:
     sigma = np.ones(len(obs))*np.std(obs)
 
-  if frequency:
+  if use_frequency:
     df = 1./(times.max() - times.min())
     if min is None:
       min = df * 2.
@@ -58,7 +58,7 @@ def aov_periodogram(times, obs, sigma=None, min=None, max=None, frequency=True,
     frequencies = np.arange(min, max, df/oversample_factor)
 
   else:
-    dp = 0.001
+    dp = 3./1440. # minimum period is 3 minutes (60sec integration + 30 readout)
     if min is None:
       min = dp
 
