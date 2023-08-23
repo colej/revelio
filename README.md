@@ -2,6 +2,11 @@
 Code for determining the dominant frequency of variability in multi-filter photometric time series using non-parametric periodograms
 
 
+## Authors:
+Cole Johnston
+### Co-authors:
+Paul Groot, Geert Molenberghs, Geert Verbeke, Margaux Delporte
+
 
 ## Installation
 
