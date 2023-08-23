@@ -38,15 +38,6 @@ if __name__ == '__main__':
     qtimes = np.array(dfq['MJD'].tolist())
     qflux  = np.array(dfq['Flux [μJy]'].tolist())
     qferr  = np.array(dfq['Fluxerr [μJy]'].tolist())
-    # qflux  = np.array(dfq['Mag_Opt'].tolist())
-    # qferr  = np.array(dfq['Magerr_Opt'].tolist())
-
-    ## It is good practice to calculate the periodogram with respect to
-    ## the time-midpoint of the dataset to minimize the uncertainty between
-    ## the number of variability cycles between 0 and the starting time of
-    ## the dataset.
-    # qtimes -= min(qtimes)
-    qflux -= np.median(qflux)
 
     ## Now, let's use the Analysis of Variance algorithm
     ## to search for periodic signals!
